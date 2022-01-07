@@ -1,0 +1,39 @@
+[10-Nov-2021 10:13:37 UTC] PHP Warning:  mysqli::__construct(): (HY000/1040): Too many connections in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 20
+[10-Nov-2021 10:13:37 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 678
+[10-Nov-2021 10:13:37 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 698
+[10-Nov-2021 10:13:37 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 734
+[10-Nov-2021 10:13:37 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 716
+[10-Nov-2021 10:13:37 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 752
+[10-Nov-2021 10:13:37 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 678
+[10-Nov-2021 10:13:37 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 698
+[10-Nov-2021 10:13:37 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 716
+[10-Nov-2021 10:13:37 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 734
+[10-Nov-2021 10:13:37 UTC] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 752
+[10-Nov-2021 10:13:37 UTC] PHP Warning:  mysqli::__construct(): (HY000/1040): Too many connections in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 20
+[10-Nov-2021 15:43:37 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 123
+[10-Nov-2021 15:43:37 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 698
+[10-Nov-2021 15:43:37 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 716
+[10-Nov-2021 15:43:37 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 734
+[10-Nov-2021 15:43:37 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 752
+[10-Nov-2021 15:43:37 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 752
+[20-Nov-2021 09:01:54 UTC] PHP Warning:  mysqli::__construct(): (HY000/1040): Too many connections in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 20
+[20-Nov-2021 14:31:54 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 122
+[20-Nov-2021 14:31:54 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 714
+[20-Nov-2021 14:31:54 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 732
+[20-Nov-2021 14:31:54 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 750
+[20-Nov-2021 14:31:54 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 768
+[20-Nov-2021 14:31:54 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 768
+[20-Nov-2021 09:01:54 UTC] PHP Warning:  mysqli::__construct(): (HY000/1040): Too many connections in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 20
+[20-Nov-2021 14:31:55 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 122
+[20-Nov-2021 14:31:55 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 714
+[20-Nov-2021 14:31:55 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 732
+[20-Nov-2021 14:31:55 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 750
+[20-Nov-2021 14:31:55 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 768
+[20-Nov-2021 14:31:55 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 768
+[20-Nov-2021 09:02:20 UTC] PHP Warning:  mysqli::__construct(): (HY000/1040): Too many connections in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 20
+[20-Nov-2021 14:32:21 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 122
+[20-Nov-2021 14:32:21 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 714
+[20-Nov-2021 14:32:21 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 732
+[20-Nov-2021 14:32:21 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 750
+[20-Nov-2021 14:32:21 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 768
+[20-Nov-2021 14:32:21 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 768

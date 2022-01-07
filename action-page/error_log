@@ -1,0 +1,3 @@
+[20-Nov-2021 09:02:22 UTC] PHP Warning:  mysqli::__construct(): (HY000/1040): Too many connections in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 20
+[20-Nov-2021 09:02:23 UTC] PHP Warning:  mysqli::__construct(): (HY000/1040): Too many connections in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 20
+[20-Nov-2021 14:32:24 Asia/Kolkata] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home4/mimtedu/public_html/Doctor_Personal_Site/class/class.php on line 122

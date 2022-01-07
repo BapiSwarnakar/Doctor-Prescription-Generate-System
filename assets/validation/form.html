@@ -1,0 +1,999 @@
+﻿
+<!DOCTYPE HTML>
+<html lang="em">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/gif" href="images/icon.ico"/>
+
+<!-----  Css  ----->
+<link rel="stylesheet" type="text/css" href="bootstrap.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="font-awesome.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="formValidation.css" rel="stylesheet">  
+<link rel="stylesheet" type="text/css" href="datepicker.css">
+<link href="select2.min.css" rel="stylesheet">
+
+<style>
+
+  
+.bg-red {
+background: #E74C3C !important;
+border: 1px solid #E74C3C !important;
+color: #fff;
+}
+.bg-green {
+background: #1ABB9C !important;
+border: 1px solid #1ABB9C !important;
+color: #fff;
+}
+.progress
+{
+height: 10px !important;
+margin-bottom: 0px !important;
+margin-top: 12px !important;
+}
+
+.myFont 
+{
+    font-size:x-small;
+}
+</style>
+
+
+
+<!-----  Css End ----->
+
+<!-----  Js  ----->
+
+<script type="text/javascript" src="jquery-1.11.2.min.js"> </script>
+<script type="text/javascript" src="datepicker.js"></script>
+<script type="text/javascript" src="Verhoeff.js"></script>
+<script type="text/javascript" src="formValidation.js"></script>
+<script type="text/javascript" src="bootstrap-validation.js"></script>
+<script type="text/javascript" src='bootstrap.min.js'></script>
+<script type="text/javascript" src='bootstrap-modalmanager.js'></script>
+<script type="text/javascript" src="commonfunc.js"></script>
+<script type="text/javascript" src="base64.js"></script>
+<script type="text/javascript" src="sha256.js"></script>
+<script type="text/javascript" src="md5.js"></script>
+<script type="text/javascript" src="select2.min.js"></script>
+
+</head>
+
+
+<body>
+
+<section class="how_to_apply content_part">
+<div class="container">
+<div class="row">
+<div class="how_to_apply_main">
+<div class="inner_heading apply_heading">
+<p>Student Registration</p>
+<div class="clearfix"></div>
+</div>
+<div class="about_main">
+
+  <div class="how_to_apply_bottom" style="width: 100% !important;">
+    <div id="msg"></div>
+
+
+    <form id="reg_form" name="reg_form" class="form-horizontal form-label-left" autocomplete="off" >
+
+        <input type="hidden" name="pass_chk" id="pass_chk" value="">
+        <input type="hidden" name="passhidden" id="passhidden" value="">
+        <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong>Basic Details</strong>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <div class="col-md-4 col-sm-4 col-xs-12">
+              <label>Applicant Name<sup>*</sup></label>
+                <input class="form-control" id="first_name" name="first_name" style="text-transform:uppercase" placeholder="First Name" type="text" onKeyPress="return keyRestrict(event,'abcdefghijklmnopqrstuvwxyz ');">
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-12">
+              <label>&nbsp;</label>
+                <input class="form-control" id="middle_name" name="middle_name" style="text-transform:uppercase" placeholder="Middle Name" type="text" onKeyPress="return keyRestrict(event,'abcdefghijklmnopqrstuvwxyz ');">
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-12">
+              <label>&nbsp;</label>
+                <input class="form-control" id="last_name" name="last_name" style="text-transform:uppercase" placeholder="Last Name" type="text" onKeyPress="return keyRestrict(event,'abcdefghijklmnopqrstuvwxyz ');">
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>Date of Birth<sup>*</sup></label>
+                <input type="text" id="dob" style="background-color: white;" class="form-control col-md-7 col-xs-12" placeholder="Date of Birth" name="dob"  readonly>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>Gender<sup>*</sup></label>
+                <select id="sex" name="sex"  class="form-control" data-toggle="tooltip"  data-placement="right" 
+                data-original-title="Please Select Gender">
+                <option value="">----Please Select Gender----</option>
+                                  <option value="MQ==">MALE</option>
+                                  <option value="Mg==">FEMALE</option>
+                                  <option value="Mw==">OTHERS</option>
+                                </select>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>Do you have Aadhaar Number?<sup>*</sup></label>
+                <select id="aadhaar_status" name="aadhaar_status"  class="form-control" data-toggle="tooltip"  data-placement="right" 
+                data-original-title="Please Select" onchange="show_aadhar_ten_two(this.value);">
+                <option value="">----Please Select----</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+                
+                </select>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12" id="adhr_show_div" style="display: none;">
+                <label>Aadhaar<sup>*</sup></label>
+                <input type="text" id="aadhaar_no"  class="form-control col-md-7 col-xs-12" placeholder="Aadhaar No" name="aadhaar_no" maxlength="12" onKeyPress="return keyRestrict(event,'0123456789');">
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12" id="board_show_div" style="display: none;">
+                  <label>Name of 10th standard Board<sup>*</sup></label>
+                  <select id="ten_two_board" name="ten_two_board"  class="form-control" data-toggle="tooltip"  data-placement="right" 
+                  data-original-title="Please Select Board">
+                  <option value="">----Please Select Board----</option>
+                                      <option value="Nw==">Central Board of Secondary Education, CBSE</option>
+                                      <option value="MTE=">Council for the Indian School Certificate Examination, ICSE</option>
+                                      <option value="MTM=">International general certificate of secondary education, IGCSE (from University of Cambridge)</option>
+                                      <option value="MTI=">National Institute of Open Schooling, NIOS </option>
+                                      <option value="NA==">The West Bengal Council of Rabindra Open Schooling</option>
+                                      <option value="OQ==">Vishwa Bharati University, Shantiniketan</option>
+                                      <option value="Mg==">West Bengal Board of Madrasa Education</option>
+                                      <option value="MTA=">West Bengal Board of Secondary Education , WBBSE</option>
+                                    </select>
+                </div>
+              <div class="clearfix"></div>
+            </div>
+
+            <div id="ten_two_show_div" style="display: none;">
+              <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <label>Registration Number of 10th standard Board<sup>*</sup></label>
+                  
+                  <input type="text" id="ten_two_reg_no"  class="form-control col-md-7 col-xs-12" placeholder="Registration Number" name="ten_two_reg_no" onKeyPress="return keyRestrict(event,'abcdefghijklmnopqrstuvwxyz0123456789');">
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <label>Year of passing of 10 standard Board<sup>*</sup></label>
+                  <select id="ten_two_pass_year" name="ten_two_pass_year"  class="form-control" data-toggle="tooltip"  data-placement="right" 
+                  data-original-title="Please Select Year Of Passing">
+                  <option value="">----Please Select Year Of Passing----</option>
+                  <option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option> 
+                  </select>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong>Present Course of Study</strong>
+          </div>
+          <div class="panel-body">
+
+            <div class="form-group">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>Programme Type<sup>*</sup></label>
+                <select id="programme_id" name="programme_id"  class="form-control" data-toggle="tooltip"  data-placement="right" 
+                data-original-title="Please Select Programme">
+                <option value="">----Please Select Programme----</option>
+                                  <option value="MTM=">CA-Final</option>
+                                  <option value="MTA=">CA -Intermediate</option>
+                                  <option value="NQ==">CERTIFICATE</option>
+                                  <option value="MTE=">CFA</option>
+                                  <option value="MTQ=">CMA-Cost and Management Accountancy         </option>
+                                  <option value="MTU=">COACHING CENTRE</option>
+                                  <option value="MTI=">CS</option>
+                                  <option value="Mw==">DIPLOMA</option>
+                                  <option value="Ng==">MPHIL</option>
+                                  <option value="Mg==">PG</option>
+                                  <option value="Nw==">PHD</option>
+                                  <option value="OA==">POST DOCTORAL</option>
+                                  <option value="NA==">SCHOOL</option>
+                                  <option value="MQ==">UG</option>
+                                  <option value="OQ==">VOCATIONAL(10+2)</option>
+                                </select>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>Programme Name<sup>*</sup></label>
+                <select id="course_id" name="course_id"  class="form-control" data-toggle="tooltip"  data-placement="right" 
+                data-original-title="Please Select Programme Name">
+                <option value="">----Please Select Programme Name----</option>
+                </select>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>State of Institution<sup>*</sup></label>
+                <select id="inst_state_id" name="inst_state_id"  class="form-control" data-toggle="tooltip"  data-placement="right" 
+                data-original-title="Please Select State of Institution">
+                <option value="">----Please Select State of Institution----</option>
+                </select>
+                
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>District of Institution<sup>*</sup></label>
+                <select id="inst_dist_id" name="inst_dist_id"  class="form-control" data-toggle="tooltip"  data-placement="right" 
+                data-original-title="Please Select District of Institution">
+                <option value="">----Please Select District of Institution----</option>
+                </select>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>Name of Institution<sup>*</sup></label>
+                <select id="inst_id" name="inst_id"  class="form-control" data-toggle="tooltip"  data-placement="right" 
+                data-original-title="Please Select Institution" style="font-size: 6px;">
+                <option value="">----Please Select Institution----</option>
+                </select>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+            
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong>Contact Details</strong>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>Mobile No<sup>*</sup></label>
+                <input type="text" id="mob_no" class="form-control col-md-7 col-xs-12" placeholder="Mobile No" name="mob_no" maxlength="10" onKeyPress="return keyRestrict(event,'0123456789');">
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+            
+            <div class="form-group">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>Email ID<sup>*</sup></label>
+                <input type="text" id="email_id" class="form-control col-md-7 col-xs-12" placeholder="Email ID" name="email_id">
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>Re-enter Email ID<sup>*</sup></label>
+                <input type="text" id="re_email_id" class="form-control col-md-7 col-xs-12" placeholder="Re-enter Email ID" name="re_email_id">
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+
+          
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+          <a id="pwd_pcy" data-toggle="tooltip" data-placement="right" data-original-title="Password should be strong.
+          Password should contain minimum eight characters, consisting of atleast One Upper Case Alphabet (i.e. A-Z), One Lower case Alphabet (i.e. a-z), One Numeric Character (i.e. 0-9) &amp; One Special Character (i.e. @#$^*_)." aria-describedby="tooltip940360"><strong>Password</strong> <i class="fa fa-question-circle" aria-hidden="true"></i></a>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>Password<sup>*</sup></label>
+                <input type="password" id="pass" name="pass"  class="form-control col-xs-12" placeholder="Enter Password*" onKeyPress="return keyRestrict(event,'abcdefghijklmnopqrstuvwxyz0123456789@#$^&*_');" onfocus="show_policy();" onfocusout="hide_policy();"> 
+                <span class="fa fa-fw fa-eye show_pass" onClick="showPass()" style="cursor:pointer;" data-toggle="tooltip" title="Show/Hide Passowrd">
+                </span>
+
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                <label>Confirm Password<sup>*</sup></label>
+                <input class="form-control" id="confirm_pass" name="confirm_pass" onpaste="return false;"  placeholder="Confirm Password" type="password" onKeyPress="return keyRestrict(event,'abcdefghijklmnopqrstuvwxyz0123456789@#$^&*_');" >
+                </div>
+            </div>
+
+            <div class="col-md-6 col-md-6 col-xs-12" ><div id="pass-info"></div></div>
+            <div class="col-md-6 col-md-6 col-xs-12"><div id="pass-info-text"></div></div>
+          </div>
+        </div>
+
+
+         <div class="col-12 row">
+            <button type="submit" name="register" id="register" class="btn pop_btn register_btn" style="float:right; margin-right: 15px; margin-top: 20px;" >
+                <i class="fa fa-forward m-r-5"></i> Register
+            </button>
+        </div>
+
+    </form>
+  </div>
+
+</div>
+</div>
+
+</div>
+</div>
+</section>
+</body>
+
+ 
+<div class="modal fade bs-example-modal-sm" id="otpModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md"  role="dialog">                           
+
+    <div class="modal-content">
+     <div id="otp_msg"></div>
+      <div class="modal-header">
+      
+        <h4 class="modal-title" style="font-size: 16px;">Mobile No. Verification</strong></h4>
+      </div>
+     
+      <div class="modal-body">
+        <label style="font-size: 15px">Enter the OTP for OTP ID <span id="otp_id_span"></span>, sent to your Mobile No XXXXXXX<span id="hid_mob_span"></span></label>
+        
+        <input type="password" class="form-control" id="otp" name="otp" placeholder="Please enter the OTP here" maxlength="4"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" onClick="modalClose();">Close</button>
+        <button type="button" class="btn btn-success" id="submit_otp" onClick="checkOTP();">Verify</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+ 
+
+ <div class="modal fade bs-example-modal-sm" id="otpsuccessModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-md"  role="dialog">                           
+
+    <div class="modal-content">
+     <div id="otp_msg"></div>
+      <div class="modal-header">
+      
+        <h4 class="modal-title" style="font-size: 16px;">Registration Successful</strong></h4>
+      </div>
+     
+      <div class="modal-body">
+        <label style="font-size: 15px">You have successfully Registered In WBSCC. Your Registration Id is <span id="final_app_id_span"></span>. Your login credentials has been sent to your mobile no. Kindly login with your credentials. </label>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger"  onClick="login_rediretion();">Close</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+  var password1     = $('#pass'); 
+  var password2   = $('#confirm_pass'); 
+  var passwordsInfo   = $('#pass-info');
+  var passwordsInfoText   = $('#pass-info-text'); 
+  passwordStrengthCheck(password1,password2,passwordsInfo,passwordsInfoText); //call password check function  
+});
+
+function show_policy()
+{
+  $("#pwd_pcy").tooltip('show');
+  $( '.tooltip-inner' ).css( 'min-width', '220px' );
+  $( '.tooltip-inner' ).css( 'background', '#73191c' );
+} 
+
+function hide_policy()
+{
+  $("#pwd_pcy").tooltip('hide');
+} 
+
+function show_aadhar_ten_two(k)
+{
+  if(k==1)
+  {
+    $("#adhr_show_div").show();
+    $("#board_show_div").hide();
+    $("#ten_two_show_div").hide();
+  }
+  else if(k==0)
+  {
+    $("#adhr_show_div").hide();
+    $("#board_show_div").show();
+    $("#ten_two_show_div").show();
+	$("#ten_two_pass_year").select2();
+    $("#ten_two_board").select2();
+  }
+  else
+  {
+    $("#adhr_show_div").hide();
+    $("#board_show_div").hide();
+    $("#ten_two_show_div").hide();
+  }
+}
+
+function showPass() { 
+  var x = document.getElementById("pass");
+  if (x.type === "password") {
+  x.type = "text";
+  } else {
+  x.type = "password";
+  }
+}
+
+function modalClose()
+{
+  $("#otpModal").modal("hide");
+}
+
+function login_rediretion()
+{
+  location.href = "https://wbscc.wb.gov.in/Applicant_Login"
+}
+
+function checkOTP()
+{
+  var otp=$('#otp').val();
+  var otp_id=$('#otp_id_span').text();
+  if(otp!="")
+  {
+    $.ajax({
+            url: "https://wbscc.wb.gov.in/Applicant_Registration/registration_submission",
+             
+            method: "GET",
+            data: {
+              otp:otp,
+              otp_id:otp_id
+
+            },
+            success: function(data){
+              //alert(data);
+               var param=data.split('|||');
+                if(param[0]=='success')
+                {
+                    $("#otpModal").modal("hide");
+                    $("#otpsuccessModal").modal("show");
+                    $("#final_app_id_span").html(param[1]);
+
+                }
+                else
+                {
+                  $("#otp_msg").html("Registration Fails");
+                   location.reload();
+                }
+            }
+         });
+  }
+  else
+  {
+    $("#otp_msg").html('Please enter otp');
+  }
+}
+
+</script>
+
+<script>
+  
+  $(document).ready(function(e) { 
+
+    $( '[data-toggle="tooltip"]' ).tooltip();
+    $( '[data-toggle="tooltip"]' ).hover( function () { 
+      $( '.tooltip-inner' ).css( 'min-width', '220px' );
+      $( '.tooltip-inner' ).css( 'background', '#73191c' );
+    });
+
+     $("#sex").select2();
+     $("#aadhaar_status").select2();
+     $("#programme_id").select2();
+     $("#course_id").select2();
+     $("#inst_state_id").select2();
+     $("#inst_dist_id").select2();
+     $("#inst_id").select2();
+     
+     
+
+    $( "#dob" ).datepicker({
+    format: "dd-mm-yyyy",
+    //endDate: '-10y',
+    startDate: '-40y',
+    autoclose: true
+    }).on('changeDate', function(e) {
+    $('#reg_form').formValidation('revalidateField', 'dob');
+    });
+
+    $("#register").click(function(){
+
+        var aadhaar=$("#aadhaar_no").val();
+        var a= aadhaar.verhoeffCheck();
+        
+        if(aadhaar!='')
+        {
+          if(a==false)
+          {
+            $("#msg").html("<div class='alert alert-danger alert-dismissible' style='text-align:center;'><strong>Aadhaar ID is not valid. Please enter valid Aadhaar ID.<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button></strong></div>");
+            $("#aadhaar_no").focus();
+            $("#aadhaar_no").val('');
+            $("#pass").val('');
+            $("#confirm_pass").val('');
+            $("#pass-info").html('');
+            $("#pass-info-text").html('');
+            $('html,body').animate({ scrollTop: 0 }, 'slow');
+            return false;
+          }
+          else
+          {
+            return true;
+          }
+        }
+
+    });
+    
+
+    $('#inst_state_id').change(function()
+    {
+        var state_id=$('#inst_state_id').val();
+              $('#inst_dist_id').html('<option value="">----Please Select District of Institution----</option>');
+              $('#inst_id').html('<option value="">----Please Select Institution----</option>');
+
+        if(state_id!="")
+        {
+          $.ajax({
+              url: "https://wbscc.wb.gov.in/Applicant_Registration/get_district",
+               
+              method: "GET",
+              data: {
+                state_id:state_id
+              },
+              success: function(data){
+                  $('#inst_dist_id').html(data);
+              }
+           });
+        }
+    
+    });   
+
+    $('#inst_dist_id').change(function()
+    {
+        var prog_id=$('#programme_id').val();
+        var district_id=$('#inst_dist_id').val();
+        var state_id=$('#inst_state_id').val();
+       // alert(district_id);
+        $('#inst_id').html('<option value="">----Please Select Institution----</option>');
+
+        if(district_id!="")
+        {
+          $.ajax({
+              url: "https://wbscc.wb.gov.in/Applicant_Registration/get_inst",
+               
+              method: "GET",
+              data: {
+                
+                district_id:district_id,
+                state_id:state_id,
+                prog_id:prog_id
+              },
+              success: function(data){
+                  $('#inst_id').html(data);
+              }
+           });
+        }
+    
+    });   
+
+
+    $('#programme_id').change(function()
+    {
+        var programme_id=$('#programme_id').val();
+
+        $('#course_id').html('<option value="">----Please Select Programme Name----</option>');
+
+        if(programme_id!="")
+        {
+          $.ajax({
+              url: "https://wbscc.wb.gov.in/Applicant_Registration/get_course",
+               
+              method: "GET",
+              data: {
+                programme_id:programme_id
+              },
+              success: function(data){
+                  $('#course_id').html(data);
+              }
+           });
+
+          if(programme_id=='NA==')
+          {
+            $("#inst_state_id").html("<option value=''>----Please Select State of Institution----</option><option value='MzU='>West Bengal</option>");
+			
+
+          }
+          else
+          {
+            $("#inst_state_id").html("<option value=''>----Please Select State of Institution----</option><option value='MzU='>West Bengal</option><option value='MQ=='>Andaman and Nicobar Islands</option><option value='Mg=='>Andhra Pradesh</option><option value='Mw=='>Arunachal Pradesh</option><option value='NA=='>Assam</option><option value='NQ=='>Bihar</option><option value='Ng=='>Chandigarh</option><option value='Nw=='>Chhattisgarh</option><option value='OA=='>Dadra and Nagar Haveli</option><option value='OQ=='>Daman and Diu</option><option value='MTA='>Delhi</option><option value='MTE='>Goa</option><option value='MTI='>Gujarat</option><option value='MTM='>Haryana</option><option value='MTQ='>Himachal Pradesh</option><option value='MTU='>Jammu and Kashmir</option><option value='MTY='>Jharkhand</option><option value='MTc='>Karnataka</option><option value='MTg='>Kerala</option><option value='MTk='>Ladakh</option><option value='MjA='>Lakshadweep</option><option value='MjE='>Madhya Pradesh</option><option value='MjI='>Maharashtra</option><option value='MjM='>Manipur</option><option value='MjQ='>Meghalaya</option><option value='MjU='>Mizoram</option><option value='MjY='>Nagaland</option><option value='Mjc='>Odisha</option><option value='Mjg='>Puducherry</option><option value='Mjk='>Punjab</option><option value='MzA='>Rajasthan</option><option value='MzE='>Sikkim</option><option value='MzI='>Tamil Nadu</option><option value='MzM='>Telangana</option><option value='MzQ='>Tripura</option><option value='MzY='>Uttar Pradesh</option><option value='Mzc='>Uttarakhand</option>");
+          }
+		  
+		  $('#inst_dist_id').html('<option value="">----Please Select District of Institution----</option>');
+          $('#inst_id').html('<option value="">----Please Select Institution----</option>');
+        }
+    });
+
+
+    //  $('#course_id').change(function()
+    // {
+    //     var course_id=$('#course_id').val();
+
+    //     $('#course_duration').val('');
+
+    //     if(course_id!="")
+    //     {
+    //       $.ajax({
+    //           url: "https://wbscc.wb.gov.in/Applicant_Registration/get_course_duration",
+               
+    //           method: "GET",
+    //           data: {
+    //             course_id:course_id
+    //           },
+    //           success: function(data){
+    //               $('#course_duration').val(data);
+    //           }
+    //        });
+    //     }
+    // });  
+
+
+
+
+//////////////////////BOOTSTRAP VALIDATION /////////////////////////////////////
+
+$('#reg_form').formValidation({
+  message: 'This value is not valid',
+      icon: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+      },
+fields: {
+  first_name: {
+    message: 'First name is not valid',
+    validators: {
+      notEmpty: {
+        message: 'First name is required'
+      },
+      regexp: {
+        regexp: /^[a-z ]+$/i,
+        message: 'First Name can consist of alphabetical characters and spaces only'
+      }
+
+    }
+  },
+  middle_name: {
+    message: 'Middle Name is not valid',
+    validators: {
+      regexp: {
+        regexp: /^[a-z ]+$/i,
+        message: 'Middle Name can consist of alphabetical characters and spaces only'
+      }
+
+    }
+  },
+  last_name: {
+    message: 'Last Name is not valid',
+    validators: {
+      regexp: {
+        regexp: /^[a-z ]+$/i,
+        message: 'Last Name can consist of alphabetical characters and spaces only'
+      }
+
+    }
+  },
+
+  dob: {
+    message: 'Date of Birth is not valid',
+    validators: {
+      notEmpty: {
+        message: 'Date of Birth is required'
+      }
+
+    }
+  },
+
+  sex: {
+    message: 'Gender is not valid',
+    validators: {
+      notEmpty: {
+        message: 'Gender is required'
+      }
+
+    }
+  },
+
+  aadhaar_status: {
+    message: 'Aadhaar Status is not valid',
+    validators: {
+      notEmpty: {
+        message: 'Aadhaar Status is required'
+      }
+
+    }
+  },
+  aadhaar_no: {
+    message: 'Aadhaar No is not valid',
+    validators: {
+      notEmpty: {
+        message: 'Aadhaar No is required'
+      }
+
+    }
+  },
+
+ ten_two_board: {
+    message: 'Name of (10+2) standard Board is not valid',
+    validators: {
+      notEmpty: {
+        message: 'Name of (10+2) standard Board is required'
+      }
+
+    }
+  },
+  ten_two_reg_no: {
+    message: 'Registration Number of (10+2) standard Board is not valid',
+    validators: {
+      notEmpty: {
+        message: 'Registration Number of (10+2) standard Board is required'
+      }
+
+    }
+  },
+   ten_two_pass_year: {
+    message: 'Year of passing of (10+2) standard Board is not valid',
+    validators: {
+      notEmpty: {
+        message: 'Year of passing of (10+2) standard Board is required'
+      }
+
+    }
+  },
+  
+
+  inst_state_id: {
+    message: 'State of Institution is not valid',
+    validators: {
+      notEmpty: {
+        message: 'State of Institution is required'
+      }
+
+    }
+  },
+
+  inst_dist_id: {
+    message: 'District of Institution is not valid',
+    validators: {
+      notEmpty: {
+        message: 'District of Institution is required'
+      }
+
+    }
+  },
+
+  inst_id: {
+    message: 'Institution is not valid',
+    validators: {
+      notEmpty: {
+        message: 'Institution is required'
+      }
+
+    }
+  },
+
+  programme_id: {
+    message: 'Programme is not valid',
+    validators: {
+      notEmpty: {
+        message: 'Programme is required'
+      }
+
+    }
+  },
+
+
+  course_id: {
+    message: 'Programme Name is not valid',
+    validators: {
+      notEmpty: {
+        message: 'Programme Name is required'
+      }
+
+    }
+  },
+
+ // course_duration: {
+ //    message: 'Programme Duration is not valid',
+ //    validators: {
+ //      notEmpty: {
+ //        message: 'Programme Duration is required'
+ //      }
+
+ //    }
+ //  },
+  mob_no: {
+    message: 'Mobile No. is not valid',
+    validators: {
+      notEmpty: {
+        message: 'Mobile No. is required'
+      },
+      regexp: {
+      regexp: /^[6789]\d{9}$/i,
+      message: 'Mobile Number is not valid'
+      }
+
+
+    }
+  },
+  email_id: {
+    message: 'The Email Address is required',
+    validators: {
+      notEmpty: {
+        message: 'Email Address is required'
+      },
+    emailAddress: {
+    message: 'Enter Valid Email Address'
+    }
+    }
+  },
+
+  re_email_id: {
+    message: 'The Email Address is required',
+    validators: {
+      notEmpty: {
+        message: 'Email Address is required'
+      },
+    emailAddress: {
+    message: 'Enter Valid Email Address'
+    },
+      identical: {
+        field: 'email_id',
+        message: 'Email Ids are missmatched'
+      }
+    }
+  },
+  
+  pass: {
+    message: 'Password is not valid',
+    validators: {
+      notEmpty: {
+        message: 'Password is required'
+      }
+
+    }
+  },
+  confirm_pass: {
+    message: 'Confirm password is not valid',
+    validators: {
+      notEmpty: {
+        message: 'Confirm password is required'
+      },
+      identical: {
+        field: 'pass',
+        message: 'Password and Confirm Password are missmatched'
+      }
+
+    }
+  },
+
+
+}
+}).on('success.form.fv', function(e){ 
+e.preventDefault();
+password=$("#pass").val();
+confirm_password=$("#confirm_pass").val();
+var pass=password;
+var conf_pass = confirm_password;
+document.reg_form.confirm_pass.value=conf_pass;
+document.reg_form.pass.value=pass;
+document.reg_form.passhidden.value=pass;
+
+$.ajax({
+type: 'GET',
+url: 'https://wbscc.wb.gov.in/Applicant_Registration/registration_validation',
+data: $('form').serialize(),
+success: function (data) { //alert(data);
+  //$("#msg").html(data); 
+      var param=data.split('|||');
+    if(param[0]=='err')
+    {
+      if(param[1]==1)
+      {
+        $("#msg").html("<div class='alert alert-danger alert-dismissible' style='text-align:center;'><strong>Password and Confirm Password did not match.<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button></strong></div>");
+      }
+      else if(param[1]==2)
+      {
+        $("#msg").html("<div class='alert alert-danger alert-dismissible' style='text-align:center;'><strong>Please enter valid password.<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button></strong></div>");
+      }
+      else if(param[1]==3)
+      {
+        $("#msg").html("<div class='alert alert-danger alert-dismissible' style='text-align:center;'><strong>Please enter valid details in registration form.<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button></strong></div>");
+      }
+      else if(param[1]==4)
+      {
+        $("#msg").html("<div class='alert alert-danger alert-dismissible' style='text-align:center;'><strong>OTP send fails.<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button></strong></div>");
+      }
+      else if(param[1]==5)
+      {
+        $("#msg").html("<div class='alert alert-danger alert-dismissible' style='text-align:center;'><strong>This Mobile No or Email Id has already been registered .<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button></strong></div>");
+      }
+      else if(param[1]==6)
+      {
+        $("#msg").html("<div class='alert alert-danger alert-dismissible' style='text-align:center;'><strong>Password should be strong according to Password Policy<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button></strong></div>");
+      }
+      else if(param[1]==7)
+      {
+        $("#msg").html("<div class='alert alert-danger alert-dismissible' style='text-align:center;'><strong>Your Aadhaar number has already been registered.<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button></strong></div>");
+      }
+      else if(param[1]==8)
+      {
+        $("#msg").html("<div class='alert alert-danger alert-dismissible' style='text-align:center;'><strong>Your (10+2) standard board data has already been registered<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button></strong></div>");
+      }
+       else if(param[1]==9)
+      {
+        $("#msg").html("<div class='alert alert-danger alert-dismissible' style='text-align:center;'><strong>Aadhaar Number is not valid. Please insert valid Aadhaar Number.<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button></strong></div>");
+      }
+
+      $("#pass").val('');
+      $("#confirm_pass").val('');
+      $("#pass-info").html('');
+      $("#pass-info-text").html('');
+      $('html,body').animate({ scrollTop: 0 }, 'slow');
+    }
+    else if(param[0]=='success')
+    {
+
+      
+      $('#otp_id_span').html(param[2]);
+      $('#hid_mob_span').html(param[3]);
+      $("#otpModal").modal("show");
+    }
+
+//else if(data=='success'){
+//   $.ajax({
+// type: 'POST',
+// url: 'ajax_otp_form.php',
+// data: $('form').serialize(),
+// success: function (data) { 
+//   var param=data.split('|');
+//   if(param[0]=='err_otp_insert'){
+//   $("#msg").html(param[1]);
+//   $('.modal').animate({scrollTop:0},"slow");
+//   $("#pass").val('');
+//   $("#confirm_pass").val('');
+//   }
+//   $('.modal').animate({scrollTop:0},"slow");
+//   $("#otpModal").html(data);
+// }
+// });
+// }
+}
+})
+
+})
+
+
+
+
+
+
+
+  });
+</script>
+
+</body>
+</html>
