@@ -311,15 +311,15 @@ class Admin_Class
 
       $mail->IsSMTP();
 
-      $mail->Host = 'smtp.gmail.com';
+      $mail->Host = 'host';
 
-      $mail->Port = '587';
+      $mail->Port = 'port';
 
       $mail->SMTPAuth = true;
 
-      $mail->Username = 'swarnakarr34@gmail.com';
+      $mail->Username = 'email';
 
-      $mail->Password = 'Software@!123';
+      $mail->Password = 'password';
 
       $mail->SMTPSecure = 'tls';
 
